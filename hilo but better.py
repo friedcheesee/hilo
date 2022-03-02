@@ -99,13 +99,13 @@ while ingame<1:
         num=str(ai)
         print("Guess if the next random number will be lower/higher by typing 'l' and 'h' respectively")
         game=0
-        while game<4:                               # game can be played 5 times to win
+        while game<5:                               # game can be played 5 times to win
             ai2=random.randint(0,10)
             print("The number is,",ai)
             guess=input()
             pbet=int(bet)
             ppbet=str(pbet)
-            if game==3:                             #condition to check if 5 times are over
+            if game==4:                             #condition to check if 5 times are over
                 inbet=int(bet)
                 wonm=str(inbet)
                 print("You won! Your total amount is",inbet)
@@ -121,13 +121,13 @@ while ingame<1:
                 betinc=random.randint(25,70)
                 print("Correct guess!,bet increased by",str(betinc)+"%",".")
                 game=game+1
-                bet=bet+(bet/betinc)*100
+                bet=bet+(bet*betinc)/100
                 ai=ai2
             elif ai>ai2 and guess=='l':             #if guess is low and it is correct
                 betinc=random.randint(25,70)
                 print("Correct guess!,bet increased by",str(betinc)+"%",".")
                 game=game+1
-                bet=bet+(bet/betinc)*100
+                bet=bet+(bet*betinc)/100
                 ai=ai2
             elif ai==ai2:                               #if the second number generated is the same as first number
                 print('Generated number was same, no reward/loss')
