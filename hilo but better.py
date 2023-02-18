@@ -17,18 +17,18 @@ or input ctrl+c to terminate the program :D \n""")
 #login or register
 if qq=='login':
     while usloop<1:
-        gname=input("Enter your username (reminder: usernames are case sensitive)")
+        gname=input("Enter your username (reminder: usernames are case sensitive) \n")
         queery=("select * from joe where user='"+gname+"';")
         c.execute(queery)
         result=c.fetchone()                                                             #to check if user exists
         if result==None:
-            print('User not found, make sure spelling is right')
+            print('User not found, make sure spelling is right \n')
         else:
-            print("Hi,"+gname+"!")
+            print("Hi,"+gname+"! \n")
             pname=gname
             usloop=+1
 else:
-    rname=input('Enter a cool name you would like us to refer you as:(reminder: usernames are case sensitive)')
+    rname=input('Enter a cool name you would like us to refer you as:(reminder: usernames are case sensitive) \n')
     queery=("select * from joe where user='"+rname+"';")
     c.execute(queery)
     result=c.fetchone()                                                              #to check if user exists
@@ -36,7 +36,7 @@ else:
         rquery=('insert into joe values("'+rname+'"'+',0,0,100,"homeless","no","no");')     
         c.execute(rquery)
         mydb.commit()
-        print("Registered user "+rname+'!')
+        print("Registered user "+rname+'! \n')
         pname=rname
     else:
         print("User already exists, please try logging in")
@@ -52,7 +52,7 @@ one.
 3.If your guess is correct, your bet increases by 25-70 percent randomly.If you get one wrong guess, you lose.
 4.The number will be in the range [0,10] and amount of money can be bet from [0,99]
 5.This game will store your statistics and anyone who plays this game locally in the mySQL database.
-6.If you have less money than the amount you have bet, the game will automatically add some money to your bank.
+6.If you have less money than the amount you have bet, the game will automatically add some money to your bank. \n
                                 Press enter to enter main menu""")
 #to get the variable 'money' to check if bet is more than money before starting the game
 def moni():
@@ -70,26 +70,26 @@ while ingame<1:
     3. See the high score board
     4. Open Shop
     5. See celebrities who have played this game
-    6. Close this wonderful game""")
+    6. Close this wonderful game \n""")
     if choice=='1':                #new bet,new game
         while rebet<1:
-            bet=int(input("Enter an amount to bet(not more than 2 digits)"))
+            bet=int(input("Enter an amount to bet(not more than 2 digits) \n"))
             if bet<0:
-                print("You cannot have money in negative")
+                print("You cannot have money in negative \n")
                 break
             elif bet>money:                                                                      #work
-                beg=print("You don't have enough money. Finding work, please wait")
+                beg=print("You don't have enough money. Finding work, please wait \n")
                 duh=random.randint(2,7)
                 time.sleep(5)
-                print("A shop accepted you for 6 hours, you earned "+str(duh*100)+" finally.")
+                print("A shop accepted you for some hours, you earned "+str(duh*100)+" finally. \n")
                 mquery=("update joe set money=money+"+str(duh)+" where user='"+pname+"';")
                 moni()    
                 break
             elif bet>=100:
-                print("Read the instructions and retry")
+                print("Read the instructions and retry \n")
                 break
             else:
-                print("Nice!,"+str(bet)+"($)"+"are placed on the table")
+                print("Nice!,"+str(bet)+"($)"+"are placed on the table \n")
                 rebet=rebet+1
                 mquery=("update joe set money=money-"+str(bet)+" where user='"+pname+"';")
                 c.execute(mquery)
@@ -97,7 +97,7 @@ while ingame<1:
                 break
         ai=random.randint(0,10)                     #choosing first number
         num=str(ai)
-        print("Guess if the next random number will be lower/higher by typing 'l' and 'h' respectively")
+        print("Guess if the next random number will be lower/higher by typing 'l' and 'h' respectively \n")
         game=0
         while game<5:                               # game can be played 5 times to win
             ai2=random.randint(0,10)
@@ -132,7 +132,7 @@ while ingame<1:
             elif ai==ai2:                               #if the second number generated is the same as first number
                 print('Generated number was same, no reward/loss')
             else:                                       #terminate loop if user loses and add to database
-                print("Wrong guess, the number was",ai2," you lost!")
+                print("Wrong guess, the number was",ai2," you lost! \n")
                 print("Better luck next time!!!")
                 lossquery=("update joe set lost=lost+1 where user='"+pname+"';")
                 mquery="update joe set money=money-"+ppbet+" where user='"+pname+"';"
@@ -222,13 +222,13 @@ Owns NASA?:no
             cost=100,000
         5 Buy happiness
             cost=0
-        6. Quit Shop""")
+        6. Quit Shop \n""")
                 if shoppe=='1':
                     moni()
                     if money<10000:
-                        print("You can't afford a house yet,come back after earning money :P")
+                        print("You can't afford a house yet,come back after earning money :P \n")
                     else:
-                        print("Congrats, you're no longer homeless")
+                        print("Congrats, you're no longer homeless \n")
                         mquery=("update joe set money=money-10000 where user='"+pname+"';")
                         hquery="update joe set house='one big beautiful house' where user='"+pname+"';"
                         c.execute(hquery)
@@ -236,7 +236,7 @@ Owns NASA?:no
                         mydb.commit()
                 elif shoppe=='2':
                     if money<30000:
-                        print("You can't afford a plane yet, come back after earning money :P")
+                        print("You can't afford a plane yet, come back after earning money :P \n")
                     else:
                         print("Now you can fly to school")
                         mquery="update joe set money=money-30000 where user='"+pname+"';"
@@ -245,13 +245,13 @@ Owns NASA?:no
                         c.execute(mquery)
                         mydb.commit()
                 elif shoppe=='3':
-                    print("okay, delivering in 10 mins, leave the front door open")
+                    print("okay, delivering in 10 mins, leave the front door open \n")
                     mquery=("update joe set money=money-10 where user='"+pname+"';")
                     c.execute(mquery)
                     mydb.commit()
                 elif shoppe=='4':
                     if money<100000:
-                        print("You can't buy NASA yet,come back after earning money :P")
+                        print("You can't buy NASA yet,come back after earning money :P \n")
                     else:
                         naquery="select * from joe where user='"+pname+"';"
                         c.execute(naquery)
@@ -265,19 +265,19 @@ Owns NASA?:no
                             c.execute(nquery)
                             mydb.commit()
                         else:
-                            print("You already own NASA")
+                            print("You already own NASA \n")
                 elif shoppe=='5':
-                    print("You can't buy happiness.")
+                    print("You can't buy happiness. \n")
                 elif shoppe=='6':
-                    print("Quitting shop")
+                    print("Quitting shop \n")
                     shloop=+1
                 else:
-                    print("Invalid choice,closing shop")
+                    print("Invalid choice,closing shop \n")
                     shloop=+1
             
                      
     else:
-        print('Invalid choice, closing game')
+        print('Invalid choice, closing game \n')
         ingame=+1
 mydb.close()
 
