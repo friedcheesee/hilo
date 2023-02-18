@@ -20,7 +20,7 @@ Prerequisites:
 One can get mysql-connector-python by opening a command prompt in their python directory, and running the command 'pip install mysql-connector-python'
 
 2. MySQL Database (preferably version 5.5) 
-In the development of this project I have used MySQL from this website: https://www.filehorse.com/download-mysql-64/11653/download/, using a different version may affect the working of the program.
+For the development of this project I have used MySQL from this website: https://www.filehorse.com/download-mysql-64/11653/download/, using a different version may affect the working of the program.
 
 3. Python : You can get python from https://www.python.org/downloads/ .
 
