@@ -1,5 +1,4 @@
 # Hi-Lo 
-# game is complete, repository in progress
 
 This is a simple number guessing game BUT with statistics for the local user. The game has 4 major sections, 
 
@@ -22,7 +21,7 @@ One can get mysql-connector-python by opening a command prompt in their python d
 2. MySQL Database (preferably version 5.5) 
 For the development of this project I have used MySQL from this website: https://www.filehorse.com/download-mysql-64/11653/download/, using a different version may affect the working of the program.
 
-3. Python : You can get python from https://www.python.org/downloads/ .
+4. Python : You can get python from https://www.python.org/downloads/ .
 
 Setting up the game with sql:
 To get started, its better if you set the password for MySQL database as 'admin',and username will be 'root' as usual. If you have set a different password for MySQL, you can 
